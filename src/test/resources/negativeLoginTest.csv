@@ -1,0 +1,9 @@
+no,description,username,password,url,expectedMessage
+1,valid user - invalid password test,standard_user,ketchup,https://www.saucedemo.com/,Epic sadface: Username and password do not match any user in this service
+2,valid user - no password test,standard_user,,https://www.saucedemo.com/,Epic sadface: Password is required
+3,locked-out user - valid password test,locked_out_user,secret_sauce,https://www.saucedemo.com/,Epic sadface: Sorry, this user has been locked out.
+4,locked-out user - no password test,locked_out_user,,https://www.saucedemo.com/,Epic sadface: Password is required
+5,locked-out user - invalid password test,locked_out_user,ketchup,https://www.saucedemo.com/,Epic sadface: Username and password do not match any user in this service
+6,no user or password test,,,https://www.saucedemo.com/,Epic sadface: Username is required
+7,unknown user - valid password,not_a_user,secret_sauce,https://www.saucedemo.com/,Epic sadface: Username and password do not match any user in this service
+8,no user - valid password,,secret_sauce,https://www.saucedemo.com/,Epic sadface: Username is required

@@ -12,4 +12,8 @@ public class InventoryPage extends BasePage {
     public String getInventoryUrl() {
         return inventoryUrl;
     }
+
+    public String getCurrentUrl() {
+        return getCurrentPageUrl();
+    }
 }

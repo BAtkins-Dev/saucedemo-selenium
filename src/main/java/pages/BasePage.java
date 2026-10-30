@@ -21,4 +21,12 @@ public class BasePage {
     protected void buttonClick(By locator) {
         driver.findElement(locator).click();
     }
+
+    protected String getCurrentPageUrl() {
+        return driver.getCurrentUrl();
+    }
+
+    protected String getText(By locator) {
+        return driver.findElement(locator).getText();
+    }
 }

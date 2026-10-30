@@ -7,6 +7,7 @@ public class LoginPage extends BasePage {
     private final By usernameField = By.id("user-name");
     private final By passwordField = By.id("password");
     private final By loginButton = By.id("login-button");
+    private final By actualErrorMessage = By.xpath("//h3[@data-test='error']");
     private final String loginUrl = "https://saucedemo.com/";
 
     public LoginPage(WebDriver driver) {
@@ -17,11 +18,23 @@ public class LoginPage extends BasePage {
         openUrl(loginUrl);
     }
 
-    public InventoryPage userLogin(String username, String password) {
+    public InventoryPage positiveUserLogin(String username, String password) {
+        generalUserLogin(username, password);
+        return new InventoryPage(driver);
+    }
+
+    public void generalUserLogin(String username, String password) {
         openUrl();
         sendKeys(usernameField, username);
         sendKeys(passwordField, password);
         buttonClick(loginButton);
-        return new InventoryPage(driver);
+    }
+
+    public String getCurrentUrl() {
+        return getCurrentPageUrl();
+    }
+
+    public String getErrorMessage() {
+        return getText(actualErrorMessage);
     }
 }
