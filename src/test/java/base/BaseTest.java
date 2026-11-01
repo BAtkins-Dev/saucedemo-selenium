@@ -1,16 +1,17 @@
 package base;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import utilities.BrowserDriverFactory;
 
 public class BaseTest {
     protected WebDriver driver;
 
     @BeforeMethod(alwaysRun = true)
     public void setup() {
-        driver = new ChromeDriver();
+        BrowserDriverFactory browserDriverFactory = new BrowserDriverFactory();
+        driver = browserDriverFactory.createDriver();
     }
 
     @AfterMethod(alwaysRun = true)
