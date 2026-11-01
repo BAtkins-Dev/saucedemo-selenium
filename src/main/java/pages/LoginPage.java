@@ -8,7 +8,7 @@ public class LoginPage extends BasePage {
     private final By passwordField = By.id("password");
     private final By loginButton = By.id("login-button");
     private final By actualErrorMessage = By.xpath("//h3[@data-test='error']");
-    private final String loginUrl = "https://saucedemo.com/";
+    private final String loginUrl = baseUrl;
 
     public LoginPage(WebDriver driver) {
         super(driver);
