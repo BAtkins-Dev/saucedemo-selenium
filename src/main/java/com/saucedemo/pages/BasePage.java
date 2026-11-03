@@ -1,8 +1,8 @@
-package pages;
+package com.saucedemo.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utilities.ConfigReader;
+import com.saucedemo.utils.ConfigReader;
 
 public class BasePage {
     protected WebDriver driver;

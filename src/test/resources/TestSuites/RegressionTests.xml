@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="RegressionTests" verbose="1">
+    <test name="LoginTests">
+        <classes>
+            <class name="com.saucedemo.tests.LoginTests"/>
+        </classes>
+    </test>
+</suite>

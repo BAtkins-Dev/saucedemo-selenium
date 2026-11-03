@@ -1,4 +1,4 @@
-package utilities;
+package com.saucedemo.utils;
 
 import org.testng.annotations.DataProvider;
 

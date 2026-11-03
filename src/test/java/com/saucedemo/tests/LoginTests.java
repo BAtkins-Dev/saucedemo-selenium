@@ -1,11 +1,11 @@
-package com.saucedemo;
+package com.saucedemo.tests;
 
-import base.BaseTest;
+import com.saucedemo.base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.InventoryPage;
-import pages.LoginPage;
-import utilities.CSVDataProviders;
+import com.saucedemo.pages.InventoryPage;
+import com.saucedemo.pages.LoginPage;
+import com.saucedemo.utils.CSVDataProviders;
 
 public class LoginTests extends BaseTest {
     @Test
