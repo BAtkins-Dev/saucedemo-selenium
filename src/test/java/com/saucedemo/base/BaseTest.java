@@ -14,6 +14,10 @@ public class BaseTest {
         driver = browserDriverFactory.createDriver();
     }
 
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         if (driver != null) {
