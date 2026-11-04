@@ -6,11 +6,7 @@
     </listeners>
     <test name="LoginTests">
         <classes>
-            <class name="com.saucedemo.tests.LoginTests">
-                    <methods>
-                        <include name="positiveLoginTest"/>
-                    </methods>
-            </class>
+            <class name="com.saucedemo.tests.LoginTests"/>
         </classes>
     </test>
 </suite>
