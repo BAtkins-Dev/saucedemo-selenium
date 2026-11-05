@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.saucedemo.pages.InventoryPage;
 import com.saucedemo.pages.LoginPage;
-import com.saucedemo.utils.CSVDataProviders;
+import com.saucedemo.dataproviders.CSVDataProviders;
 
 public class LoginTests extends BaseTest {
     @Test
