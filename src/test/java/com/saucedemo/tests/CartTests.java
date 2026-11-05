@@ -25,6 +25,5 @@ public class CartTests extends BaseTest {
         List<String> cartItems = List.of("sauce-labs-backpack", "sauce-labs-bike-light", "sauce-labs-fleece-jacket");
         inventoryPage.addMultipleItemsToCart(cartItems);
         Assert.assertEquals(inventoryPage.cartBadgeCount(), cartItems.size(), "Badge count is incorrect");
-        System.out.println(cartItems.size());
     }
 }

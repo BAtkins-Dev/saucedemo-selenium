@@ -2,6 +2,7 @@ package com.saucedemo.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -25,7 +26,9 @@ public class InventoryPage extends BasePage {
 
     public void addToCartClick(String item) {
         By addToCartLocator = By.id("add-to-cart-" + item);
+        By removeFromCartLocator = By.id("remove-" + item);
         buttonClick(addToCartLocator);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(removeFromCartLocator));
     }
 
     public int cartBadgeCount() {
