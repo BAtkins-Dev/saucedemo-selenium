@@ -6,6 +6,8 @@ import com.saucedemo.pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class CartTests extends BaseTest {
     @Test
     public void addOneItemToCart() {
@@ -13,6 +15,16 @@ public class CartTests extends BaseTest {
         InventoryPage inventoryPage = loginPage.positiveUserLogin("standard_user", "secret_sauce");
         inventoryPage.addToCartClick("sauce-labs-backpack");
 
-        Assert.assertEquals(inventoryPage.cartBadgeCount(),"1", "Badge count is incorrect");
+        Assert.assertEquals(inventoryPage.cartBadgeCount(), 1, "Badge count is incorrect");
+    }
+
+    @Test
+    public void addThreeItemsToCart() {
+        LoginPage loginPage = new LoginPage(driver);
+        InventoryPage inventoryPage = loginPage.positiveUserLogin("standard_user", "secret_sauce");
+        List<String> cartItems = List.of("sauce-labs-backpack", "sauce-labs-bike-light", "sauce-labs-fleece-jacket");
+        inventoryPage.addMultipleItemsToCart(cartItems);
+        Assert.assertEquals(inventoryPage.cartBadgeCount(), cartItems.size(), "Badge count is incorrect");
+        System.out.println(cartItems.size());
     }
 }

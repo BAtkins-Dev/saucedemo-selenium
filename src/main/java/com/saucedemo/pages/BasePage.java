@@ -1,15 +1,21 @@
 package com.saucedemo.pages;
 
+import com.saucedemo.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import com.saucedemo.utils.ConfigReader;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class BasePage {
     protected WebDriver driver;
     protected String baseUrl;
+    private final WebDriverWait wait;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         ConfigReader configReader = new ConfigReader();
         baseUrl = configReader.getConfigProperty("baseUrl");
     }
@@ -23,7 +29,7 @@ public class BasePage {
     }
 
     protected void buttonClick(By locator) {
-        driver.findElement(locator).click();
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 
     protected String getCurrentPageUrl() {
@@ -31,6 +37,6 @@ public class BasePage {
     }
 
     protected String getText(By locator) {
-        return driver.findElement(locator).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
     }
 }
