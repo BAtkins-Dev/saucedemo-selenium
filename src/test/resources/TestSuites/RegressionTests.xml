@@ -9,4 +9,9 @@
             <class name="com.saucedemo.tests.LoginTests"/>
         </classes>
     </test>
+    <test name="AddToCartTests">
+        <classes>
+            <class name="com.saucedemo.tests.CartTests"/>
+        </classes>
+    </test>
 </suite>
