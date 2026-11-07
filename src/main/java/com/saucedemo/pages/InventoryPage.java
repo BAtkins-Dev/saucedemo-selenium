@@ -1,6 +1,7 @@
 package com.saucedemo.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -27,8 +28,13 @@ public class InventoryPage extends BasePage {
     public void addToCartClick(String item) {
         By addToCartLocator = By.id("add-to-cart-" + item);
         By removeFromCartLocator = By.id("remove-" + item);
-        buttonClick(addToCartLocator);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(removeFromCartLocator));
+
+        try {
+            buttonClick(addToCartLocator);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(removeFromCartLocator));
+        } catch (TimeoutException e) {
+            throw new RuntimeException("Add to cart did not register for '" + item + "'.", e);
+        }
     }
 
     public int cartBadgeCount() {
