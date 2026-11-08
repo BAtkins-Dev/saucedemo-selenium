@@ -22,6 +22,23 @@ public class ScreenshotListener implements ITestListener {
         BaseTest testObject = (BaseTest) tr.getInstance();
         WebDriver driver = testObject.getDriver();
 
+        takeScreenshotCommon(driver, tr);
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult tr) {
+        BaseTest testObject = (BaseTest) tr.getInstance();
+        WebDriver driver = testObject.getDriver();
+
+        takeScreenshotCommon(driver, tr);
+   }
+
+    private void takeScreenshotCommon(WebDriver driver, ITestResult tr) {
+        if (driver == null) {
+            System.out.println("No driver for " + tr.getName() + ", skipping screenshot.");
+            return;
+        }
+
         try {
             TakesScreenshot ts = (TakesScreenshot) driver;
             File screenshotFile = ts.getScreenshotAs(OutputType.FILE);
